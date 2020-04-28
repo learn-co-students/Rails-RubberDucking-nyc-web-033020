@@ -1,0 +1,17 @@
+<% if flash[:errors] %>
+  <% flash[:errors].each do |err| %>
+    <p><%= err %></p>
+  <% end %>
+<% end %>
+<%= form_for @student do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :mod %>
+  <%= f.number_field :mod, min: 1, max: 5 %>
+  <%= f.submit %>
+<% end %>
+<% if @student.id %>
+  <%= form_with(url: student_path(@student), method: 'delete') do |f| %>
+    <%= f.submit(value: "Delete") %>
+  <% end %>
+<% end %>

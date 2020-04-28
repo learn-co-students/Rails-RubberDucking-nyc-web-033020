@@ -1,0 +1,5 @@
+<h3>Show Page for Duck #<%= @duck.id.to_s %></h3>
+<p>Name: <%= @duck.name %></p>
+<p>Description: <%= @duck.description %></p>
+<p>Student: <%= link_to @duck.student.name, student_path(@duck.student) %></p>
+<%= link_to "Edit Duck", edit_duck_path(@duck) %>
