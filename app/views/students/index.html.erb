@@ -13,7 +13,7 @@
     <% @students.each do |student| %> 
       <tr> 
         <td><%= student.name %></td> 
-        <td><%= student.description %></td> 
+        <td><%= student.mod %></td> 
         <td> 
           <%= link_to 'View', student %> | 
           <%= link_to 'Edit', edit_song_path(student) %> 
