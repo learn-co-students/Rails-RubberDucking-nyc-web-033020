@@ -1,7 +1,28 @@
 <h1>These are some cool duckys:</h1>
+<div><%= link_to 'Create Duck', new_duck_path %></div> 
+<br /> 
+<table> 
+  <thead> 
+    <tr> 
+      <th>Name</th> 
+      <th>Description</th>
+      <th>Student ID</th> 
+      <th></th>  
+    </tr> 
+  </thead> 
+  <tbody> 
+    <% @ducks.each do |duck| %> 
+      <tr> 
+        <td><%= duck.name %></td> 
+        <td><%= duck.description %></td> 
+        <td><%= duck.student.name %></td> 
+        <td> 
+          <%= link_to 'View', duck %> | 
+          <%= link_to 'Edit', edit_duck_path(duck) %> |
+          <%= link_to 'Delete', duck, method: :delete, data: { confirm: 'Are you sure you want to delete?' } %>
+        </td> 
+      </tr> 
+    <% end %> 
+  </tbody> 
+</table> 
 
-<ul>
-  <% @ducks.each do |duck| %>
-    <li> <%= duck.name %> </li>
-  <% end %>
-</ul>
