@@ -13,6 +13,10 @@
         <%= f.label :mod %> 
         <%= f.number_field :mod %> 
     </div> 
+    <div class="field"> 
+        <%= f.label :student_id %> 
+        <%= f.collection_select :student_id, @students, :id, :name %> 
+    </div> 
     <div class="actions"> 
         <%= f.submit %> 
     </div> 

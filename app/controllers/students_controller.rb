@@ -49,4 +49,8 @@ class StudentsController < ApplicationController
   def student_params 
     params.require(:student).permit(:name, :mod) 
   end 
+
+  def find_student 
+    @student = Student.find(params[:id]) 
+  end 
 end
