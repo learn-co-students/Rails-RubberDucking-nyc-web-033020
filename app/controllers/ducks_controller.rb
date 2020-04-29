@@ -6,6 +6,8 @@ class DucksController < ApplicationController
 
   def new 
     @duck = Duck.new 
+    @students = Student.all 
+    render :new 
   end 
 
   def show 
@@ -25,6 +27,7 @@ class DucksController < ApplicationController
 
   def edit 
     @duck = Duck.find(params[:id]) 
+    @students = Student.all 
   end 
 
   def update 
@@ -39,14 +42,14 @@ class DucksController < ApplicationController
   end 
 
   def destroy  
-    @duck = Student.find(params[:id]) 
+    @duck = Duck.find(params[:id]) 
     @duck.destroy 
-    redirect_to students_url 
+    redirect_to ducks_url 
   end 
 
   private 
 
-  def student_params 
-    params.require(:duck).permit(:name, :mod, :student_id)  
+  def duck_params 
+    params.require(:duck).permit(:name, :description, :student_id)  
   end 
 end
