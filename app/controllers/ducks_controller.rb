@@ -4,4 +4,49 @@ class DucksController < ApplicationController
     @ducks = Duck.all
   end
 
+  def new 
+    @duck = Duck.new 
+  end 
+
+  def show 
+    @duck = Duck.find(params[:id]) 
+  end 
+
+  def create 
+    @duck = Duck.new(student_params) 
+
+    if @duck.save 
+      redirect_to duck_path(@duck) 
+    else  
+      flash[:errors] = @duck.errors.full_messages 
+      redirect_to new_duck_path 
+    end 
+  end 
+
+  def edit 
+    @duck = Duck.find(params[:id]) 
+  end 
+
+  def update 
+    @duck = Duck.find(params[:id]) 
+
+    if @duck.update(duck_params) 
+      redirect_to duck_path(@duck) 
+    else  
+      flash[:errors] = @duck.errors.full_messages 
+      redirect_to edit_duck_path 
+    end 
+  end 
+
+  def destroy  
+    @duck = Student.find(params[:id]) 
+    @duck.destroy 
+    redirect_to students_url 
+  end 
+
+  private 
+
+  def student_params 
+    params.require(:duck).permit(:name, :mod, :student_id)  
+  end 
 end
