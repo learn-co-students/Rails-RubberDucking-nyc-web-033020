@@ -5,7 +5,7 @@
   <thead> 
     <tr> 
       <th>Name</th> 
-      <th>Description</th>
+      <th>Mod</th>
       <th></th>  
     </tr> 
   </thead> 
@@ -16,8 +16,8 @@
         <td><%= student.mod %></td> 
         <td> 
           <%= link_to 'View', student %> | 
-          <%= link_to 'Edit', edit_song_path(student) %> 
-          <%= link_to 'Delete', song, method: :delete, data: { confirm: 'Are you sure you want to delete?' } %>
+          <%= link_to 'Edit', edit_student_path(student) %> 
+          <%= link_to 'Delete', student, method: :delete, data: { confirm: 'Are you sure you want to delete?' } %>
         </td> 
       </tr> 
     <% end %> 
