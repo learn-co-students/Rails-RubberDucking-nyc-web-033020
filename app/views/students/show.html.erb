@@ -1,0 +1,7 @@
+<h1>A single student and his info</h1>
+
+<h4>Name: <%=@student.name%><br>
+Mod: <%=@student.mod%><br>
+His/her Ducks: <%@student.ducks.each do |duck|%>
+<%=duck.name%><br>
+<%end%></h4>

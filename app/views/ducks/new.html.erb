@@ -1,0 +1,20 @@
+<% if flash[:errors] %>
+  <% flash[:errors].each do |error|%>
+    <p><%= error %></p>
+  <% end%>
+<% end %>
+
+<h1>Create a duck</h1>
+
+<%=form_for @duck do |f| %>
+<%=f.label :name%>
+<%=f.text_field :name%><br>
+
+<%=f.label :description%>
+<%=f.text_field :description%><br>
+
+<%=f.label :student_id%>
+<%=f.collection_select :student_id, Student.all, :id, :name%><br>
+
+<%=f.submit value = "Create your duck"%>
+<% end %>
