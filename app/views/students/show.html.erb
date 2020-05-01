@@ -1,0 +1,10 @@
+<label>Name: </label>
+<%= @student.name %><br>
+
+<label>Mod: </label>
+<%= @student.mod %><br>
+
+<label>Ducks: </label><br>
+<% @student.ducks.each do |duck| %>
+  <%= duck.name %><br>
+<% end %>
